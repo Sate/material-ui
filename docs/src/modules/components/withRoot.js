@@ -51,7 +51,8 @@ const pages = [
     pathname: '/style',
     children: [
       {
-        pathname: '/style/reboot',
+        pathname: '/style/css-baseline',
+        title: 'CSS Baseline',
       },
       {
         pathname: '/style/color',
@@ -169,6 +170,9 @@ const pages = [
         title: 'Right-to-left',
       },
     ],
+  },
+  {
+    pathname: '/premium-themes',
   },
   {
     pathname: '/lab',

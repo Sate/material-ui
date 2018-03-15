@@ -72,3 +72,39 @@ Want to add your app? Found an app that no longer works or no longer uses Materi
   Modular audio production suite with multi-track audio mixing, audio effects, parameter automation, MIDI editing, synthesis, cloud production, and more.
   
   https://audionodes.com
+
+### 13. CountUp: A Running Total Game
+  A numbers game, currently in development.
+  
+  https://chrisward.co.uk/code/countup/
+  
+### 14. Componofy: Spotify Playlist Combination
+  A web app that allows a Spotify user to combine private and public playlists and either create a new one or merge with existing playlist. You can also reorder your playlist tracks and upload new playlist cover images.
+
+  homepage: https://componofy.herokuapp.com
+ 
+  github: https://github.com/DalerAsrorov/componofy
+  
+### 15. Cryptoverview: A friendly Dashboard for your cryptocurrency portfolio
+  Cryptoverview is a responsive webapp that displays a user's Bittrex portfolio, trending currencies and market caps. It provides some fancy charts, news related to cryptocurrencies, and more.
+
+  homepage: https://cryptoverview.com
+
+### 16. PersonalBlog: A starter for GatsbyJS
+  A ready to use, easy to customize starter for GatsbyJS, blazing-fast static site generator for React.
+
+  demo: https://gatsby-starter-personal-blog.greglobinski.com/
+ 
+  github: https://github.com/greglobinski/gatsby-starter-personal-blog
+
+### 17. Planalyze
+  Planalyze is a real-time daily planning & task tracking tool that keeps teams connected & ahead of each day's workload.
+  
+  https://www.planalyze.io
+  
+### 18. Material Blog
+  A blog with a UI built entirely using material-ui v1. Check out the [theming page](https://jdupont.github.io/halloween), which leverages `MuiThemeProvider` to allow for live theme changes.
+
+  Demo: https://jdupont.github.io/
+
+  Source: https://github.com/jdupont/jdupont.github.io

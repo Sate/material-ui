@@ -148,7 +148,7 @@ export const styles = theme => {
       display: 'block',
       // Make the flex item shrink with Firefox
       minWidth: 0,
-      width: '100%',
+      flexGrow: 1,
       '&::-webkit-input-placeholder': placeholder,
       '&::-moz-placeholder': placeholder, // Firefox 19+
       '&:-ms-input-placeholder': placeholder, // IE 11
@@ -225,6 +225,15 @@ function formControlState(props, context) {
 }
 
 class Input extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.isControlled = props.value != null;
+    if (this.isControlled) {
+      this.checkDirty(props);
+    }
+  }
+
   state = {
     focused: false,
   };
@@ -235,14 +244,6 @@ class Input extends React.Component {
     return {
       muiFormControl: null,
     };
-  }
-
-  componentWillMount() {
-    this.isControlled = this.props.value != null;
-
-    if (this.isControlled) {
-      this.checkDirty(this.props);
-    }
   }
 
   componentDidMount() {
@@ -444,27 +445,29 @@ class Input extends React.Component {
     }
 
     return (
-      <div onBlur={this.handleBlur} onFocus={this.handleFocus} className={className} {...other}>
+      <div className={className} {...other}>
         {startAdornment}
         <InputComponent
+          aria-invalid={error}
+          aria-required={required}
           autoComplete={autoComplete}
           autoFocus={autoFocus}
           className={inputClassName}
-          onChange={this.handleChange}
-          onKeyUp={onKeyUp}
-          onKeyDown={onKeyDown}
+          defaultValue={defaultValue}
           disabled={disabled}
-          required={required ? true : undefined}
-          value={value}
           id={id}
           name={name}
-          defaultValue={defaultValue}
+          onBlur={this.handleBlur}
+          onChange={this.handleChange}
+          onFocus={this.handleFocus}
+          onKeyDown={onKeyDown}
+          onKeyUp={onKeyUp}
           placeholder={placeholder}
-          type={type}
           readOnly={readOnly}
+          required={required ? true : undefined}
           rows={rows}
-          aria-required={required}
-          aria-invalid={error}
+          type={type}
+          value={value}
           {...inputProps}
         />
         {endAdornment}

@@ -110,7 +110,7 @@ class SelectInput extends React.Component {
       return;
     }
 
-    if (['space', 'up', 'down'].includes(keycode(event))) {
+    if (['space', 'up', 'down'].indexOf(keycode(event)) !== -1) {
       event.preventDefault();
       // Opening the menu is going to blur the. It will be focused back when closed.
       this.ignoreNextBlur = true;
@@ -207,7 +207,7 @@ class SelectInput extends React.Component {
     if (value === undefined) {
       throw new Error(
         'Material-UI: the `value` property is required ' +
-          'when using the `Select` component with `native=false`.',
+          'when using the `Select` component with `native=false` (default).',
       );
     }
 
@@ -251,9 +251,11 @@ class SelectInput extends React.Component {
       }
 
       return React.cloneElement(child, {
+        onClick: this.handleItemClick(child),
         role: 'option',
         selected,
-        onClick: this.handleItemClick(child),
+        value: undefined, // The value is most likely not a valid HTML attribute.
+        'data-value': value, // Instead, we provide it as a data attribute.
       });
     });
 
@@ -298,8 +300,7 @@ class SelectInput extends React.Component {
         >
           {/* So the vertical align positioning algorithm quicks in. */}
           {/* eslint-disable-next-line react/no-danger */}
-          <span dangerouslySetInnerHTML={{ __html: '&#8203' }} />
-          {display}
+          {display || <span dangerouslySetInnerHTML={{ __html: '&#8203' }} />}
         </div>
         <input
           value={Array.isArray(value) ? value.join(',') : value}
@@ -425,6 +426,9 @@ SelectInput.propTypes = {
   /**
    * Render the selected value.
    * You can only use it when the `native` property is `false` (default).
+   *
+   * @param {*} value The `value` provided to the component.
+   * @returns {ReactElement}
    */
   renderValue: PropTypes.func,
   /**
@@ -440,7 +444,8 @@ SelectInput.propTypes = {
    */
   type: PropTypes.string,
   /**
-   * The value of the component, required for a controlled component.
+   * The input value.
+   * This property is required when the `native` property is `false` (default).
    */
   value: PropTypes.oneOfType([
     PropTypes.string,

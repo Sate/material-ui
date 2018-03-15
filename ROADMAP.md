@@ -95,36 +95,29 @@ Users trying out and using v1-beta and giving feedback has been a tremendous hel
 This feedback has guided the following list of important breaking changes
 that **are needed for the stable version**:
 
-- [ ] Rename `Reboot` to `CssBaseline` [#10233](https://github.com/mui-org/material-ui/issues/10233).
-  The new wording should clarify the purpose of the component. For instance, it's not about adding JavaScript polyfills.
-
-   ```diff
-   -<Reboot />
-   +<CssBaseline />
-   ```
-
-- [x] Remove the `fontSize` property from the `Icon` and `SvgIcon` components in order to make it the default behavior.
-It's already the default behavior of the `Icon` component. You will still be able to change the size of the icons with the `width` and `height` CSS properties. The difference is that they can use the `font-size` as a shorthand.
+- [ ] Change the CSS specificity rule to solve [#10010](https://github.com/mui-org/material-ui/issues/10010) and [#9742](https://github.com/mui-org/material-ui/issues/9742) at scale.
+  It's inspired by the Bootstrap approach to writing CSS. Basically, it follows two rules:
+  1. A variant has one level of specificity. User overrides can be considered a variant, so we can keep things as simple as possible, e.g. `color` or `variant`.
+  2. We increase the specificity for a variant modifier. We already have to do it for the pseudo-classes (`:hover`, `:focus`, etc.). It allows much more control at the cost of extra complexity. Hopefully it makes it more intuitive.
 
   ```diff
-  -<SvgIcon style={{ fontSize: 20 }} fontSize />
-  +<SvgIcon style={{ fontSize: 20 }} />
-  ```
+  const styles = {
+  -  checked: {
+  -    color: green[500],
+  +  root: {
+  +    color: green[600],
+  +    '&$checked': {
+  +      color: green[500],
+  +    },
+     },
+  +  checked: {},
+  };
 
-- [x] Do not prefix the classes keys when used for a variation. >80% of the components enforce this rule, let's make this figure 100%.
-
-  ```diff
-  -<TableCell variant="head" classes={{ typeHead: 'typeHead' }} />
-  +<TableCell variant="head" classes={{ head: 'head' }} />
-  ```
-
-- [ ] Remove the `xxxClassName` properties when already covered the `classes` property.
-  These properties were introduced before`classes`.
-  Using a single pattern makes things more predictable and easier to work with.
-
-  ```diff
-  -<Tabs buttonClassName="buttonClassName" indicatorClassName="indicatorClassName" />
-  +<Tabs classes={{ buttonClassName: 'buttonClassName', indicatorClassName: 'indicatorClassName' }} />
+  <Checkbox
+    classes={{
+  +   root: classes.root,
+      checked: classes.checked,
+    }} />
   ```
 
 - [ ] Grid with no spacing by default [#10223](https://github.com/mui-org/material-ui/issues/10223).
@@ -148,34 +141,6 @@ It's already the default behavior of the `Icon` component. You will still be abl
   ```diff
   -import { ListItem } from 'material-ui/List';
   +import ListItem from 'material-ui/ListItem';
-  ```
-
-- [ ] Change the CSS specificity rule to solve [#10010](https://github.com/mui-org/material-ui/issues/10010) and [#9742](https://github.com/mui-org/material-ui/issues/9742) at scale.
-  It's inspired by the Bootstrap approach to writing CSS. Basically, it follows two rules:
-  1. A variant has one level of specificity. User overrides can be considered a variant, so we can keep things as simple as possible, e.g. `color` or `variant`.
-  2. We increase the specificity for a variant modifier. We already have to do it for the pseudo-classes (`:hover`, `:focus`, etc.). It allows much more control at the cost of extra complexity. Hopefully it makes it more intuitive.
-
-  ```diff
-  const styles = {
-  -  checked: {
-  -    color: green[500],
-  +  root: {
-  +    color: green[600],
-  +    '&$checked': {
-  +      color: green[500],
-  +    },
-     },
-  +  checked: {},
-  };
-
-  // ...
-
-     <Checkbox
-       classes={{
-  +      root: classes.root,
-         checked: classes.checked,
-       }}
-     />
   ```
 
 - [ ] Use `@material-ui npm scope name` #9673. The pros have been raised in the linked issue.

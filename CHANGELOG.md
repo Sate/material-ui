@@ -2,6 +2,142 @@
 
 Changes. Changes everywhere!
 
+## 1.0.0-beta.37
+###### *Mar 11, 2018*
+
+Big thanks to the 13 contributors who made this release possible.
+
+Here are some highlights ✨:
+- An important fix of the focus/blur logic of the Select (#10538) @oliviertassinari.
+- A multiple selection downshift example (#10550) @oliviertassinari.
+- A new parcel example (#10575) @oliviertassinari.
+- And many more bug fixes and documentation improvements.
+
+### Breaking change
+
+- [classes] Move the XXXClassName to the classes property (#10600) @oliviertassinari
+
+These properties were introduced before `classes`.
+Exposing a single pattern makes things more predictable and easier to work with.
+
+```diff
+-<Tabs buttonClassName="foo" indicatorClassName="bar" />
++<Tabs classes={{ scrollButtons: 'foo', indicator: 'bar' }} />
+```
+
+```diff
+-<TextField labelClassName="foo" helperTextClassName="bar" />
++<TextField InputLabelProps={{ className: 'foo' }} FormHelperTextProps={{ className: 'bar' }} />
+```
+
+- [CssBaseline] Rename from Reboot (#10605}
+
+The new wording should clarify the purpose of the component.
+For instance, it's not about adding JavaScript polyfills.
+
+```diff
+-<Reboot />
++<CssBaseline />
+```
+
+#### Component Fixes / Enhancements
+
+- [Select] Fix wrong onBlur onFocus logic (#10538) @oliviertassinari
+- [ExpansionPanel] Fix controlled behavior (#10546) @oliviertassinari
+- [Autocomplete] Add multiple downshift example (#10550) @oliviertassinari
+- [Autocomplete] selectedItem can be null (#10565) @caub
+- [core] Improve IE11 support (#10568) @oliviertassinari
+- [TextField] Better inputComponent demo (#10573) @oliviertassinari
+- [typescript] Add a test case for ListItemIcon (#10593) @oliviertassinari
+- [ListItemText] Make the children an alias of the primary property (#10591) @caub
+- [Button] Fix Button variant prop description (#10578) @teekwak
+- [Table] Fix table pagination example empty row height (#10588) @amcgee
+- [Icon] Fix a bug in Chrome 64.0 (#10594) @caub
+- [List] use theme for margin in ListItemText (#10597) @caub
+- [StepIcon] enable CSS modifications of active step (#10599) @vkentta
+- [Tooltip] Add enterTouchDelay and leaveTouchDelay props (#10577) @petegivens
+
+#### Docs
+
+- [docs] Simplify the CDN example (6e4cc723689961582ede16db421cbdf24ac7c4b9) @oliviertassinari
+- [docs] Add showcase to readme - componofy (#10541) @DalerAsrorov
+- [docs] Add Cryptoverview to the showcase (#10545) @leMaik
+- [docs] Add menu Collapse example (#10548) @oliviertassinari
+- [docs] Add PersonalBlog Gatsby starter to Showcase (#10566) @greglobinski
+- [docs] Add parcel example (#10575) @oliviertassinari
+- [docs] Fix typo in contributing readme (#10586) @chiragmongia
+- [docs] Fix next.js example to enable styled-jsx with material-ui (#10580) @shibukawa
+- [docs] Add the latest backers (#10602) @oliviertassinari
+- [docs] Add Planalyze to Showcase (#10603) @dancastellon
+- [docs] Improve the htmlFontSize documentation (#10604) @oliviertassinari
+
+#### Core
+
+- [core] Fix type definitions (#10553) @stefanorie
+- [core] Better overrides merge support (#10606) @oliviertassinari
+
+## 1.0.0-beta.36
+###### *Mar 5, 2018*
+
+Big thanks to the 14 contributors who made this release possible.
+
+Here are some highlights ✨:
+- We have started the effort toward supporting the async API of react@16.3.0 (#10489, #10523) @oliviertassinari.
+- Document how to use Material-UI with a CDN (#10514) @zelinf.
+- And many more bug fixes and documentation improvements.
+
+### Breaking change
+
+- [SvgIcon] Allow changing the width with the font-size (#10446) @oliviertassinari
+
+Remove the `fontSize` property. The `SvgIcon` behavior is closer to the `Icon` behavior.
+```diff
+-<Icon fontSize />
+-<SvgIcon fontSize />
++<Icon />
++<SvgIcon />
+```
+Now, you can use the `font-size` style property to changr the size of the icon.
+
+- [classes] Normalize the classes names (#10457) @oliviertassinari
+
+This is an effort in order to harmonize the classes API.
+The best way to recover from this breaking change is to check the warnings in the console and to check the added documentation around the design rules around this API.
+
+#### Component Fixes / Enhancements
+
+- [Table] Default display style for all table components (#10447) @caub
+- [Collapse] Fix description (#10454) @onurkose
+- [ButtonBase] Add a TouchRippleProps property (#10470) @christophediprima
+- [Select] Ensure label is shrinked when using startAdornment (#10474) @carab
+- [Card][List] Implement responsive gutters (#10477) @lukePeavey
+- [icon] Add "side-effects": false to material-ui-icons (#10482) @b1f6c1c4
+- [IconButton] Fix theme.spacing.unit size dependency (#10486) @oliviertassinari
+- [ListItem] Avoid li > li issue (#10484) @oliviertassinari
+- [ListItem] Fix ContainerProps.className propagation (#10488) @oliviertassinari
+- [Textarea] Prepare React 16.3.0 (#10489) @oliviertassinari
+- [icon] Add build:es for material-ui-icons (#10497) @b1f6c1c4
+- [ButtonBase] Fix the ripple on Edge (#10512) @oliviertassinari
+- [Autocomplete] Update the demos so people can stack the components (#10524) @oliviertassinari
+- [Button] Add override support for sizeLarge and sizeSmall (#10526) @wenduzer
+- [Modal] Use prototype functions in ModalManager (#10528) @ianschmitz
+
+#### Docs
+
+- [docs] Fix Roadmap docs formatting (#10501) @cherniavskii
+- [docs] EnhancedTable Demo (#10491) @kgregory
+- [docs] Add new Showcase project (#10509) @chriswardo
+- [Select] Document when the value is required (#10505) @MichaelArnoldOwens
+- [Select] Document the renderValue signature (#10513) @oliviertassinari
+- [docs] Add a CDN example (#10514) @oliviertassinari
+- [docs] Fix SSR rendering in Gatsby example (#10536) @LegNeato
+
+#### Core
+
+- [core] Prepare the async API (#10523) @oliviertassinari
+- [core] Upgrade the dev dependencies (#10456) @oliviertassinari
+- [core] Upgrade the dev dependencies (#10515) @oliviertassinari
+
 ## 1.0.0-beta.35
 ###### *Feb 24, 2018*
 

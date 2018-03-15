@@ -29,13 +29,13 @@ Material-UI is available as an [npm package](https://www.npmjs.org/package/mater
 
 **[Stable channel (v0.x)](http://material-ui.com/)**
 ```sh
-npm install --save material-ui
+npm install material-ui
 ```
 
 **[Pre-release channel (v1-beta)](https://material-ui-next.com/)**
 ([Recommended](#should-i-start-with-v1-beta) for new projects.)
 ```sh
-npm install --save material-ui@next
+npm install material-ui@next
 ```
 
 Please note that `@next` will only point to pre-releases; to get the latest stable release use `@latest` instead.
@@ -131,14 +131,13 @@ We are keeping v1 in beta so we can release breaking changes without having them
 ## Questions
 
 For *how-to* questions and other non-issues,
-please use [StackOverflow](http://stackoverflow.com/questions/tagged/material-ui)
-instead of Github issues. There is a StackOverflow tag called "material-ui"
-that you can use to tag your questions.
+please use [StackOverflow](http://stackoverflow.com/questions/tagged/material-ui) instead of Github issues.
+There is a StackOverflow tag called "material-ui" that you can use to tag your questions.
 
 ## Examples
 
 Are you looking for an example project to get started?
-[We host some](https://github.com/mui-org/material-ui/blob/v1-beta/docs/src/pages/getting-started/example-projects.md).
+[We host some](https://material-ui-next.com/getting-started/example-projects/).
 
 ## Documentation
 
@@ -155,7 +154,7 @@ Please read the [changelog](https://github.com/mui-org/material-ui/releases).
 
 ## Roadmap
 
-The future plans and high priority features and enhancements can be found in the [ROADMAP.md](/ROADMAP.md) file.
+The future plans and high priority features and enhancements can be found in the [ROADMAP.md](https://material-ui-next.com/discover-more/roadmap/) file.
 
 ## Thanks
 
