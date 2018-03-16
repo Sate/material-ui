@@ -1,7 +1,7 @@
 import React from 'react';
 import { spy, useFakeTimers } from 'sinon';
 import { assert } from 'chai';
-import { createShallow, getClasses, createMount } from '../test-utils';
+import { createShallow, getClasses, createMount } from '../../../../src/test-utils';
 import Slider from './Slider';
 
 describe('<Slider />', () => {

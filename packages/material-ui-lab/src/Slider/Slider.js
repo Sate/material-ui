@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import withStyles from '../styles/withStyles';
-import ButtonBase from '../ButtonBase';
-import addEventListener from '../utils/addEventListener';
-import { fade } from '../styles/colorManipulator';
+import withStyles from '../../../../src/styles/withStyles';
+import ButtonBase from '../../../../src/ButtonBase';
+import addEventListener from '../../../../src/utils/addEventListener';
+import { fade } from '../../../../src/styles/colorManipulator';
 
 export const style = theme => {
   const commonTransitionsOptions = {

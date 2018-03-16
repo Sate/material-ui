@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Slider from 'material-ui/Slider';
+import Slider from '../../../../../packages/material-ui-lab/src/Slider/Slider';
 
 const styles = () => ({
   container: {
