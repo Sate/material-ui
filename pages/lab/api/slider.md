@@ -28,5 +28,5 @@ Any other properties supplied will be [spread to the root element](/guides/api#s
 
 ## Demos
 
-- [Slider](/demos/slider)
+- [Slider](/lab/slider)
 
