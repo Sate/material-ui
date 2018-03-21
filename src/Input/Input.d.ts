@@ -48,19 +48,18 @@ export interface InputProps
 export type InputClassKey =
   | 'root'
   | 'formControl'
-  | 'inkbar'
-  | 'error'
-  | 'input'
-  | 'inputDense'
-  | 'disabled'
   | 'focused'
+  | 'disabled'
   | 'underline'
+  | 'error'
   | 'multiline'
+  | 'fullWidth'
+  | 'input'
+  | 'inputMarginDense'
   | 'inputDisabled'
-  | 'inputSingleline'
-  | 'inputSearch'
   | 'inputMultiline'
-  | 'fullWidth';
+  | 'inputType'
+  | 'inputTypeSearch';
 
 declare const Input: React.ComponentType<InputProps>;
 

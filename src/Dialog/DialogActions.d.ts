@@ -4,7 +4,7 @@ import { StandardProps } from '..';
 export interface DialogActionsProps
   extends StandardProps<React.HTMLAttributes<HTMLDivElement>, DialogActionsClassKey> {}
 
-export type DialogActionsClassKey = 'root' | 'action' | 'button';
+export type DialogActionsClassKey = 'root' | 'action';
 
 declare const DialogActions: React.ComponentType<DialogActionsProps>;
 
